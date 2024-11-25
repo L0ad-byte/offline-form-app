@@ -1,38 +1,51 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Offline Form App</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ffffff">
-  
-  <!-- Favicon Icons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Packs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <div class="container">
-    <h1>Contact Us</h1>
-    <form id="contactForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+    <header>
+        <h1>Employee Packs</h1>
+        <nav>
+            <button id="clear-cache">Clear Cache</button>
+            <button id="view-logs">View Logs</button>
+        </nav>
+    </header>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+    <main>
+        <section id="id-input-section">
+            <label for="id-number">ID Number:</label>
+            <input type="text" id="id-number" maxlength="13" placeholder="0000000000000" />
+        </section>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <section id="camera-section">
+            <video id="camera-stream" autoplay playsinline></video>
+            <div id="capture-buttons">
+                <button data-doc-type="KB">KB</button>
+                <button data-doc-type="SSO">SSO</button>
+                <button data-doc-type="HAZARD ID">HAZARD ID</button>
+                <button data-doc-type="ID FRONT">ID FRONT</button>
+                <button data-doc-type="ID BACK">ID BACK</button>
+            </div>
+        </section>
 
-      <button type="submit">Submit</button>
-    </form>
-    <div id="status"></div>
-    <button id="exportButton">Export Submissions</button>
-  </div>
+        <section id="previews-section">
+            <h2>Document Previews</h2>
+            <div id="previews-container"></div>
+        </section>
 
-  <script src="app.js"></script>
+        <button id="generate-pdf">Generate PDF</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Employee Packs</p>
+    </footer>
+
+    <script src="lib/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
